@@ -67,7 +67,7 @@ def check_training_result_files(folder, ruleset, quiet, werror):
                 continue
 
             # Find all result files for this benchmark.
-            pattern = '{folder}/result_*.txt'.format(folder=benchmark_folder)
+            pattern = '{folder}/result_*'.format(folder=benchmark_folder)
             result_files = glob.glob(pattern, recursive=True)
 
             # No result files were found. That is okay, because the organization

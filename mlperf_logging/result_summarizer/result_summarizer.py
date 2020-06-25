@@ -116,7 +116,8 @@ def _row_key(system_desc):
 
 
 def _read_mlperf_score(result_file, ruleset):
-    with open(result_file, 'r') as f:
+    # print(result_file)
+    with open(result_file, 'r', errors='ignore') as f:
         result = f.read()
 
     config_file = '{ruleset}/common.yaml'.format(ruleset=ruleset)
@@ -239,7 +240,7 @@ def summarize_results(folder, ruleset):
             benchmark = _benchmark_alias(folder_parts[-1])
 
             # Read scores from result files.
-            pattern = '{folder}/result_*.txt'.format(folder=benchmark_folder)
+            pattern = '{folder}/result_*'.format(folder=benchmark_folder)
             result_files = glob.glob(pattern, recursive=True)
             scores = []
             dropped_scores = 0
